@@ -2,7 +2,7 @@
 
 SwiftUI diffs view trees. Stable identity and small focused subviews usually beat clever indirection.
 
-## Keep `body` Simple
+## Keep `body` Simple [Prefer]
 
 - Keep `body` declarative and side-effect free.
 - Move imperative work into methods, models, tasks, or view modifiers.
@@ -22,7 +22,7 @@ struct DetailView: View {
 }
 ```
 
-## Prefer Stable Trees
+## Prefer Stable Trees [Prefer]
 
 - Use modifiers or value changes when you are expressing two states of the same view.
 - Use conditionals when the branches are genuinely different views or optional content.
@@ -34,7 +34,7 @@ Text(item.title)
     .opacity(item.isHidden ? 0 : 1)
 ```
 
-## Extraction Guidelines
+## Extraction Guidelines [Prefer]
 
 - Prefer extracted `View` types over large computed view builders for complex sections.
 - Small local helpers are fine when they are obviously cheap and improve readability.
@@ -52,7 +52,7 @@ struct RowList: View {
 }
 ```
 
-## Container Pattern
+## Container Pattern [Consider]
 
 - For reusable containers, prefer storing built view content with `@ViewBuilder let content: Content` instead of escaping content closures.
 - This keeps the container easier for SwiftUI to diff and keeps the synthesized initializer ergonomic.
@@ -71,11 +71,12 @@ struct Card<Content: View>: View {
 }
 ```
 
-## `overlay` / `background` vs `ZStack`
+## `overlay` / `background` vs `ZStack` [Prefer]
 
 - Use `overlay` or `background` when decorating a primary view.
 - Use `ZStack` when multiple peers jointly define layout.
 - Prefer the modifier form when the modified view should remain the layout anchor.
+- For the shortest decision aid, load `overlay-background-zstack.md`.
 
 ```swift
 Button("Continue", action: submit)
@@ -84,7 +85,7 @@ Button("Continue", action: submit)
     }
 ```
 
-## Represent State Honestly
+## Represent State Honestly [Prefer]
 
 - If a piece of UI exists in both states, change its values, not its identity.
 - If the content is optional, truly alternate, or backed by different data, a conditional is fine.
@@ -94,3 +95,9 @@ Button("Continue", action: submit)
 
 - Prefer `ViewModifier`, `ButtonStyle`, or dedicated small views for shared styling and behavior.
 - Do not hide major structure behind generic helper extensions when a named view would be clearer.
+
+## When Not to Apply [Only when]
+
+- Keep a tiny computed helper inline when extracting a separate `View` would make the surrounding code harder to read.
+- Keep a real conditional when the branches are genuinely different views, lifecycles, or data dependencies.
+- Do not extract subviews mechanically if it forces a large parameter list and obscures ownership.

@@ -2,7 +2,7 @@
 
 Choose ownership first, then choose the wrapper that matches it.
 
-## Default Model for New Code
+## Default Model for New Code [Prefer]
 
 - Prefer `@Observable` models on iOS 17+, macOS 14+, and equivalent platform releases.
 - Store an owned observable reference in `@State` so SwiftUI preserves the instance across view refreshes.
@@ -29,7 +29,7 @@ struct ProfileView: View {
 }
 ```
 
-## Wrapper Selection
+## Wrapper Selection [Prefer]
 
 | Use | Wrapper |
 | --- | --- |
@@ -52,7 +52,7 @@ struct EditorView: View {
 }
 ```
 
-## Practical Rules
+## Practical Rules [Prefer]
 
 - Mark `@State` private.
 - Use `@Binding` for downward mutation, not for read-only display.
@@ -60,7 +60,7 @@ struct EditorView: View {
 - Avoid creating `ObservableObject` instances inline with `@ObservedObject`.
 - Keep shared state narrow. Do not pass entire app models to leaf views if they only need one value.
 
-## Property Wrappers Inside `@Observable`
+## Property Wrappers Inside `@Observable` [Consider]
 
 Property wrappers and Observation macros can interact in surprising ways.
 
@@ -78,7 +78,7 @@ struct SettingsView: View {
 }
 ```
 
-## Focus and Forms
+## Focus and Forms [Prefer]
 
 - Use `Bool` focus state for one field.
 - Use a `Hashable` enum for multiple fields.
@@ -93,7 +93,7 @@ enum Field: Hashable {
 @FocusState private var focusedField: Field?
 ```
 
-## Bindings and Effects
+## Bindings and Effects [Prefer]
 
 - Avoid `Binding(get:set:)` in `body` when direct bindings plus `onChange` or explicit actions are simpler.
 - Prefer numeric `TextField` bindings with format styles over string parsing for numeric entry.
@@ -105,7 +105,13 @@ TextField("Score", value: $score, format: .number)
     .keyboardType(.numberPad)
 ```
 
-## Legacy Interop
+## Legacy Interop [Only when]
 
 - Keep `ObservableObject`, `@Published`, `@StateObject`, `@ObservedObject`, and `@EnvironmentObject` when a migration would be invasive or when a library already exposes them.
 - When touching legacy code, preserve the existing ownership semantics even if you do not fully migrate to Observation in the same change.
+
+## When Not to Apply [Only when]
+
+- Do not migrate stable legacy code to Observation in a drive-by change if the task is unrelated and the ownership model is already correct.
+- Do not hide every dependency in `@Environment`; keep inputs explicit when the state is local to one feature or one view subtree.
+- Do not reach for `@Bindable` when a child only needs read-only access.

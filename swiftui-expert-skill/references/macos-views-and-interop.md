@@ -2,6 +2,8 @@
 
 Read this file only when the task includes macOS-only view APIs, tables, file panels, or AppKit interop.
 
+For dense optional detail on tables and file dialogs, also load `macos-table-and-file-panels.md`.
+
 ## Split Views
 
 - Use `NavigationSplitView` for sidebar-driven navigation.
@@ -22,6 +24,7 @@ HSplitView {
 - Support sorting with `sortOrder` and explicitly re-sort your backing collection.
 - Support selection with a single ID or `Set<ID>`.
 - Make the first column informative for compact environments where later columns collapse.
+- For the dense availability and file-panel summary, load `macos-table-and-file-panels.md`.
 
 ```swift
 @State private var sortOrder = [KeyPathComparator(\Person.givenName)]
@@ -40,6 +43,7 @@ Table(people, sortOrder: $sortOrder) {
 - Prefer `fileImporter`, `fileExporter`, and `fileMover` before dropping to AppKit panels directly.
 - Use `PasteButton` and, where available, `CopyButton` for system clipboard actions.
 - Customize file dialogs with the SwiftUI modifiers that the deployment target supports before wrapping AppKit.
+- For security-scoped import details and `Table(sortOrder:)` availability, load `macos-table-and-file-panels.md`.
 
 ## Drag and Drop
 

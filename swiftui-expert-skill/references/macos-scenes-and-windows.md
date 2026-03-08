@@ -2,6 +2,8 @@
 
 Read this file only when the task targets macOS-specific APIs or multiplatform window behavior.
 
+For denser optional detail, also load `macos-menu-bar-and-settings.md` and `macos-window-chrome.md`.
+
 ## Scene Types
 
 - Use `Settings` for app preferences on macOS. Gate it with `#if os(macOS)` in multiplatform apps.
@@ -30,8 +32,9 @@ struct MyApp: App {
 ## Settings
 
 - `Settings` is macOS-only.
-- Use `SettingsLink` or `openSettings` to open the settings window from app UI.
+- Use `SettingsLink` or `openSettings` to open the settings window from app UI on supported targets.
 - Tabbed settings views are a good default when there are multiple groups of preferences.
+- For exact availability and menu-bar-adjacent settings entry patterns, load `macos-menu-bar-and-settings.md`.
 
 ```swift
 struct SidebarFooter: View {
@@ -48,6 +51,7 @@ struct SidebarFooter: View {
 - `MenuBarExtra` supports `.menu` and `.window` styles.
 - Use `.window` for richer SwiftUI content.
 - For menu-bar-only apps, set `LSUIElement = true` if the Dock icon should be hidden.
+- For exact `MenuBarExtra` and `SettingsLink` availability, load `macos-menu-bar-and-settings.md`.
 
 ```swift
 MenuBarExtra("Status", systemImage: "chart.bar") {
@@ -62,6 +66,7 @@ MenuBarExtra("Status", systemImage: "chart.bar") {
 - Use `.windowToolbarStyle(...)` and `.windowStyle(...)` at the scene level.
 - Prefer `NavigationSplitView` for sidebar-driven navigation.
 - Use `Inspector` for trailing detail panels on supported OS versions.
+- For the short decision summary around scene-level window modifiers, load `macos-window-chrome.md`.
 
 ```swift
 WindowGroup {

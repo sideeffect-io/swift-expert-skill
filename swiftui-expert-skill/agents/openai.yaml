@@ -1,7 +1,7 @@
 interface:
   display_name: "SwiftUI Expert"
-  short_description: "Modern SwiftUI guidance across Apple platforms."
-  default_prompt: "Use $swiftui-expert to review or improve this SwiftUI code."
+  short_description: "Modern SwiftUI guidance, patterns, previews, and reviews across Apple platforms."
+  default_prompt: "Use $swiftui-expert to review or improve this SwiftUI code, including state, navigation, performance, theming, previews, and app-level patterns."
 
 policy:
   allow_implicit_invocation: true

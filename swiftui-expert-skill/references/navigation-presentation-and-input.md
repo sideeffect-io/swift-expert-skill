@@ -2,7 +2,7 @@
 
 Prefer typed, model-driven flows over boolean-heavy wiring.
 
-## Navigation
+## Navigation [Prefer]
 
 - Prefer `NavigationStack` for push-style flows.
 - Prefer `NavigationSplitView` for multi-column navigation, especially on iPad and macOS.
@@ -34,11 +34,12 @@ struct RootView: View {
 }
 ```
 
-## Sheets and Modal Flows
+## Sheets and Modal Flows [Prefer]
 
 - Prefer `.sheet(item:)` when the sheet represents selected model data.
 - When multiple sheet types exist, use an `Identifiable` enum plus one sheet modifier.
 - Let sheets own their own dismiss, save, and cancel actions unless the parent truly owns the workflow.
+- For detents, popovers, and ownership nuance, load `sheet-patterns.md`.
 
 ```swift
 enum PresentedSheet: Identifiable {
@@ -56,38 +57,44 @@ enum PresentedSheet: Identifiable {
 }
 ```
 
-## Alerts and Confirmation
+## Alerts and Confirmation [Prefer]
 
 - Attach alerts and confirmation dialogs close to the UI that triggers them.
 - Prefer confirmation dialogs for choice-heavy destructive actions.
 - Keep alert state small and specific.
 
-## Forms and Text Input
+## Forms and Text Input [Prefer]
 
 - Prefer `Form` for grouped settings and structured data entry.
-- Use `LabeledContent` to pair titles with controls in forms.
 - Unless you need a larger freeform editing surface, prefer `TextField(axis: .vertical)` over `TextEditor` so you keep placeholder support and easier inline behavior.
 - Use `@FocusState` for field-to-field navigation.
+- For choosing native form controls and `LabeledContent`, load `form-controls.md`.
+- For reusable validation affordances and previewable row composition, load `component-patterns.md`.
+- For submit flow, keyboard dismissal, or validation-driven focus, load `focus-and-keyboard.md`.
 
 ```swift
 TextField("Notes", text: $notes, axis: .vertical)
     .lineLimit(3...8)
 ```
 
-## Search
+## Search [Prefer]
 
 - Use `searchable(text:)` for native search UI.
 - Add `searchScopes` only when multiple modes are genuinely useful.
 - Debounce expensive searches with `.task(id:)` or model-level throttling.
 - Use `ContentUnavailableView.search` or a custom empty state when results are empty.
+- For scope design and search-specific empty-state nuance, load `search-and-scopes.md` and `loading-placeholders.md`.
 
-## Scroll-Reveal and Secondary Surfaces
+## Scroll-Reveal and Secondary Surfaces [Consider]
 
 - If a screen reveals secondary content through scrolling, derive one normalized progress value from scroll state.
 - Drive opacity, offset, blur, or affordance visibility from that one source of truth.
 - Avoid layering a second gesture state machine on top unless scrolling cannot express the interaction.
+- For sticky input bars or bottom action chrome, load `input-bars-and-safe-area-insets.md`.
 
-## Platform Routing
+## Platform Routing [Only when]
 
 - If the task includes macOS windows, settings, menu bar extras, inspectors, or split-view behavior, load `macos-scenes-and-windows.md`.
 - If it includes `Table`, AppKit interop, file panels, or `NSViewRepresentable`, load `macos-views-and-interop.md`.
+- If it includes menu bar extras, `SettingsLink`, `openSettings`, or scene-level window modifiers, load the matching macOS micro references.
+- If it includes tabs, toolbars, placeholder states, previews, or haptics, load `component-patterns.md`.
