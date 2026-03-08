@@ -31,7 +31,7 @@ Useful references:
 Once this repository is published, install it from GitHub with:
 
 ```bash
-npx skills add https://github.com/<owner>/<repo> --skill swiftui-expert-skill
+npx skills add https://github.com/sideeffect-io/swift-expert-skill --skill swiftui-expert
 ```
 
 ### Codex
