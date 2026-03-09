@@ -1,6 +1,26 @@
 # Reference Index
 
-Use this file when the right reference is not obvious.
+Use this file when the right reference is not obvious, or when the task is a broad review or assessment.
+
+## Start by task
+
+| If the task is... | Start here |
+| --- | --- |
+| broad code review or assessment | `api-modernization.md`, then `state-and-data-flow.md`, `view-composition.md`, `navigation-presentation-and-input.md`, `performance.md`, and `accessibility-and-design.md` |
+| improve or refactor existing code | identify the dominant problem in the topic table below; if it is still unclear, start `api-modernization.md` |
+| write a new screen or feature | start here, then load `state-and-data-flow.md`, `navigation-presentation-and-input.md`, and `component-patterns.md`; add `app-structure-and-deeplinks.md` for multi-screen, tab, scene, or deeplink flows |
+| vague or mixed request | start `api-modernization.md`, then use the topic table below to narrow scope |
+
+## Start by platform or release
+
+| If the work is primarily... | Start here |
+| --- | --- |
+| iPhone, iPad, tvOS, watchOS, or visionOS SwiftUI UI work | `state-and-data-flow.md`, `navigation-presentation-and-input.md`, and `component-patterns.md` |
+| macOS scenes, windows, settings, menu bar extras, tables, file panels, or AppKit interop | `macos-scenes-and-windows.md`, `macos-views-and-interop.md`, and the matching macOS micro references below |
+| multiplatform app structure, tab-wide routing, scene-wide state, or deeplink handling | `app-structure-and-deeplinks.md`; add the macOS references when desktop scenes or AppKit interop matter |
+| iOS 26 or macOS 26 Liquid Glass work, or new SwiftUI WebKit APIs | `liquid-glass.md` and `api-modernization.md` |
+
+## Start by topic
 
 | If the request mentions... | Start here |
 | --- | --- |
@@ -14,7 +34,8 @@ Use this file when the right reference is not obvious.
 | jank, hangs, profiling, hot paths | `performance.md` |
 | accessibility, typography, theming | `accessibility-and-design.md` |
 | animations, hero transitions, navigation transitions | `animations-and-transitions.md` |
-| general Swift quality, concurrency, hygiene | `swift-and-hygiene.md` |
+| `matchedTransitionSource`, `navigationTransition`, hero push transitions | `matched-and-navigation-transitions.md` |
+| general Swift quality, concurrency, testing, localization, secrets, or hygiene | `swift-and-hygiene.md` |
 | Liquid Glass | `liquid-glass.md` |
 | macOS windows, settings, menu bar, AppKit interop | `macos-scenes-and-windows.md`, `macos-views-and-interop.md` |
 | `AsyncImage`, thumbnails, downsampling | `asyncimage-and-downsampling.md` |

@@ -2,6 +2,17 @@
 
 SwiftUI diffs view trees. Stable identity and small focused subviews usually beat clever indirection.
 
+## In This File
+
+- Keep `body` simple
+- Prefer stable trees
+- Extraction guidelines
+- Container pattern
+- `overlay` / `background` vs `ZStack`
+- Represent state honestly
+- Reuse
+- When not to apply
+
 ## Keep `body` Simple [Prefer]
 
 - Keep `body` declarative and side-effect free.

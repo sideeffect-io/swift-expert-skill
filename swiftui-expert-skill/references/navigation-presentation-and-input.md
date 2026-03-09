@@ -2,6 +2,16 @@
 
 Prefer typed, model-driven flows over boolean-heavy wiring.
 
+## In This File
+
+- Navigation
+- Sheets and modal flows
+- Alerts and confirmation
+- Forms and text input
+- Search
+- Scroll-reveal and secondary surfaces
+- Platform routing
+
 ## Navigation [Prefer]
 
 - Prefer `NavigationStack` for push-style flows.

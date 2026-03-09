@@ -4,6 +4,17 @@ Read this file when the request spans multiple screens, tabs, app entry points, 
 
 Keep the guidance architecture agnostic: describe ownership, routing, and presentation responsibilities without forcing MVVM, TCA, coordinators, or any specific folder layout.
 
+## In This File
+
+- Root composition
+- Tabs, navigation, and sheets
+- Typed routes over stringly routing
+- Deeplink flow
+- URL and activity entry points
+- Multi-scene and multiplatform notes
+- External events and restoration
+- App-level checklist
+
 ## Root Composition
 
 - Keep the `App` entry point thin. Compose scenes, inject shared services or observable models, and hand off to feature roots quickly.

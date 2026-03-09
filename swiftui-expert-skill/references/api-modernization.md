@@ -2,6 +2,17 @@
 
 Use Apple migration docs and API availability as the source of truth. Prefer newer APIs in new work, but do not force churn in stable legacy code unless the touched area benefits from the migration.
 
+## In This File
+
+- Availability snapshot
+- Navigation and toolbar migrations
+- Presentation and input migrations
+- Styling and layout migrations
+- Events and feedback migrations
+- Environment and custom keys
+- Web content
+- Current migration summary
+
 ## Availability Snapshot
 
 Availability refers to API availability from current Apple documentation, not your project's minimum deployment target.

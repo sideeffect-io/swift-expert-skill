@@ -2,6 +2,16 @@
 
 Read this file when the task is about concrete SwiftUI building blocks such as tabs, grids, toolbars, menus, placeholders, previews, or haptics.
 
+## In This File
+
+- Tabs
+- Grids and adaptive layouts
+- Toolbars, menus, and secondary surfaces
+- Loading, empty, and placeholder states
+- Feedback and haptics
+- Previews and sample data
+- Component checklist
+
 ## Tabs [Prefer]
 
 - Use `TabView(selection:)` with a typed enum instead of integer or string tags.

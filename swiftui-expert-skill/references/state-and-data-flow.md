@@ -2,6 +2,17 @@
 
 Choose ownership first, then choose the wrapper that matches it.
 
+## In This File
+
+- Default model for new code
+- Wrapper selection
+- Practical rules
+- Property wrappers inside `@Observable`
+- Focus and forms
+- Bindings and effects
+- Legacy interop
+- When not to apply
+
 ## Default Model for New Code [Prefer]
 
 - Prefer `@Observable` models on iOS 17+, macOS 14+, and equivalent platform releases.

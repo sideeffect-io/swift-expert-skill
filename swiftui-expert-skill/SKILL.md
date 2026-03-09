@@ -1,11 +1,11 @@
 ---
 name: swiftui-expert
-description: Write, review, refactor, or modernize SwiftUI across Apple platforms using current APIs, Observation-based data flow, view composition, navigation and presentation patterns, tabs and forms, deeplinks, performance and profiling, accessibility, theming, previews, animations, macOS scenes and views, Swift and concurrency hygiene, and optional iOS 26 Liquid Glass.
+description: Write, review, assess, refactor, or modernize SwiftUI across Apple platforms using current APIs, Observation-based data flow, view composition, navigation and presentation patterns, tabs and forms, deeplinks, performance and profiling, accessibility, theming, previews, animations, macOS scenes and views, Swift and concurrency hygiene, and optional iOS 26 Liquid Glass.
 ---
 
 # SwiftUI Expert
 
-Use this skill for SwiftUI code generation, refactors, reviews, and API modernization. Prefer native SwiftUI and Apple guidance. Keep recommendations architecture-agnostic unless the existing codebase already commits to a specific pattern.
+Use this skill for SwiftUI code generation, assessment, refactors, reviews, and API modernization. Prefer native SwiftUI and Apple guidance. Keep recommendations architecture-agnostic unless the existing codebase already commits to a specific pattern.
 
 ## Reference Tags
 
@@ -16,7 +16,14 @@ Use this skill for SwiftUI code generation, refactors, reviews, and API moderniz
 
 ## Workflow
 
-### 1. Review existing code
+### 0. Route by task
+
+- For broad code review or assessment with no obvious topic, start with `references/api-modernization.md`, then load `references/state-and-data-flow.md`, `references/view-composition.md`, `references/navigation-presentation-and-input.md`, `references/performance.md`, and `references/accessibility-and-design.md` as the code warrants.
+- For improving existing code, identify whether the dominant issue is state, composition, navigation, app wiring, collection behavior, performance, accessibility, animation, or surrounding Swift hygiene, then open the matching reference from `references/index.md`.
+- For new screens or features, start with `references/index.md`, then load `references/state-and-data-flow.md`, `references/navigation-presentation-and-input.md`, and `references/component-patterns.md` as the baseline set. Add `references/app-structure-and-deeplinks.md` when the feature spans tabs, scenes, or external entry points.
+- For vague or mixed prompts, start with `references/index.md` and load only the files that match the dominant risk.
+
+### 1. Review or assess existing code
 
 - Start with `references/api-modernization.md` for current API choices and migration wording.
 - If the right file is unclear, start with `references/index.md`. It routes to the main references and the focused micro references: `references/asyncimage-and-downsampling.md`, `references/sheet-patterns.md`, `references/scrollview-and-position.md`, `references/list-row-identity.md`, `references/form-controls.md`, `references/loading-placeholders.md`, `references/macos-menu-bar-and-settings.md`, `references/macos-table-and-file-panels.md`, `references/macos-window-chrome.md`, `references/search-and-scopes.md`, `references/focus-and-keyboard.md`, `references/matched-and-navigation-transitions.md`, `references/input-bars-and-safe-area-insets.md`, `references/title-menus-and-toolbars.md`, `references/overlay-background-zstack.md`, `references/preview-strategies.md`, and `references/theme-tokens.md`.
