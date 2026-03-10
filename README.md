@@ -103,8 +103,10 @@ How this skill improves and merges those sources:
 - It merges the overlapping SwiftUI guidance from the three repos into one entry point instead of forcing the agent to pick between multiple competing skills or styles.
 - It intentionally strips architecture opinions from borrowed material, keeping SwiftUI guidance portable across MVVM, MV, reducer-based, and app-specific routing setups.
 - It aims for decision-coverage parity rather than word-count parity: keep the important rules, migration guidance, and edge cases, but compress repetition aggressively.
-- It uses canonical topic owners plus micro references for long-tail topics such as sheets, scroll positioning, loading placeholders, toolbars, previews, theming, and macOS UI, which improves coverage without bloating the default read.
-- It adds a symptom-based routing index and review heuristics so an agent can find the right reference faster than in the original repos.
+- It broadens the trigger and entry-point design so the skill is discoverable for writing, reviewing, assessing, refactoring, and modernizing SwiftUI code, not just generic reviews.
+- It now routes by task, platform or release, and topic: an agent can start from broad review, new UI work, refactors, multiplatform app structure, macOS-specific UI, or iOS 26 and WebKit-for-SwiftUI work without guessing the first file.
+- It uses canonical topic owners plus focused micro references for long-tail topics such as sheets, scroll positioning, loading placeholders, search, focus, toolbars, previews, theming, hero transitions, and macOS UI, which improves coverage without bloating the default read.
+- It adds a dedicated reference index plus short "In This File" maps on the larger references, so an agent can find both the right file and the right section faster than in the original repos.
 - It distinguishes Apple deprecations from stylistic preferences using explicit rule-strength tags, which reduces false certainty during reviews and refactors.
 - It centralizes availability-sensitive API guidance in one modernization reference instead of scattering version assumptions across many files.
 - It was audited against current Apple documentation using Cupertino MCP and Sosumi MCP, including modern SwiftUI, Observation, search, scrolling, modal presentation, file import, menu bar, settings, and WebKit for SwiftUI APIs.
